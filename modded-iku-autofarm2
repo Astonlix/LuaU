@@ -1,6 +1,6 @@
-//literally nothing, this is just my version that automatically caps the fps and puts black screen for more fps, best if auto attach
-//incase you wanted to use this script, here is the settings format
-//getgenv().Settings = { fps = "3", } (remember to remove the // at the beginning)
+--[[literally nothing, this is just my version that automatically caps the fps and puts black screen for more fps, best if auto attach
+incase you wanted to use this script, here is the settings format
+getgenv().Settings = { fps = "3", } (remember to remove the // at the beginning)]]--
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/commands/main/cpu-saver"))()
 
