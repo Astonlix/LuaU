@@ -1,6 +1,6 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/commands/main/cpu-saver"))()
 
-setfpscap(getgenv().Settings.fps)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
 getgenv().Enabled = true
 getgenv().Dis = function()
