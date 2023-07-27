@@ -51,18 +51,6 @@ local GetClosestPart = function(Table)
 	return ClosestPart
 end
 
-local CheckKOed = function()
-	if (Player.Character.BodyEffects["K.O"].Value == true) then 
-		Player.Character.Humanoid.Health = 0 
-
-		for i,v in pairs(Player.Character:GetChildren()) do 
-			if (v:IsA("BasePart")) then 
-				v:Destroy()
-			end
-		end
-	end
-end
-
 local GetCashier = function()
 	local AvailableCashiers = {}
 	for i,v in pairs(Cashiers:GetChildren()) do 
@@ -121,7 +109,7 @@ task.spawn(function()
 
 				
 				task.wait()
-			until (Cashier.Humanoid.Health <= 0) or (Player.Character.Humanoid.Health <= 0) or (Player.Character.BodyEffects["K.O"].Value == true) or (Enabled == false)
+			until (Cashier.Humanoid.Health <= 0) or (Enabled == false)
 			
 			pcall(CheckKOed)
 			
@@ -138,9 +126,8 @@ task.spawn(function()
 				end
 
 				task.wait()
-			until (#CashParts <= 0) or (Player.Character.Humanoid.Health <= 0) or (Player.Character.BodyEffects["K.O"].Value == true) or (Enabled == false)
-			
-			pcall(CheckKOed)
+			until (#CashParts <= 0) or (Enabled == false)
+
 		end
 	end
 end)
