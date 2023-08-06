@@ -1,7 +1,7 @@
 _G.wl_key = getgenv().ScriptKey
 
-_G.FPS = getgenv().fps
-_G.PublicServerMode = getgenv().public_server
-_G.CPUSaver = cpu_saver
+_G.FPS = getgenv().Settings.FPS
+_G.CPUSaver = getgenv().Settings.CPUSaver
+_G.PublicServerMode = getgenv().Settings.PublicServerMode
 
 loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
