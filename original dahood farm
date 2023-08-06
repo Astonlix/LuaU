@@ -4,4 +4,9 @@ _G.FPS = getgenv().Settings.FPS
 _G.CPUSaver = getgenv().Settings.CPUSaver
 _G.PublicServerMode = getgenv().Settings.PublicServerMode
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
+
+settings().Rendering.QualityLevel = 1
+UserSettings().GameSettings.MasterVolume = 0
+
 loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
