@@ -1,3 +1,9 @@
+if _G.CommandScriptExecuted then
+    return  -- Do not execute the script again
+else
+    _G.CommandScriptExecuted = true  -- Set the flag to true to mark the script as executed
+end
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/commands/main/cpu-saver"))()
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
