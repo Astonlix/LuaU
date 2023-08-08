@@ -8,6 +8,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/commands/mai
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
+game:GetService("RunService"):Set3dRenderingEnabled(false)
 settings().Rendering.QualityLevel = 1
 UserSettings().GameSettings.MasterVolume = 0
 
