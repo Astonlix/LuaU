@@ -3,6 +3,7 @@ _G.wl_key = getgenv().ScriptKey
 _G.FPS = getgenv().Settings.FPS
 _G.CPUSaver = getgenv().Settings.CPUSaver
 _G.PublicServerMode = getgenv().Settings.PublicServerMode
+_G.Webhook = getgenv().Settings.WebhookURL
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
