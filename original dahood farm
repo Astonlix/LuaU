@@ -1,20 +1,15 @@
-if (not game:IsLoaded()) then 
-	game.Loaded:Wait()
-	task.wait(2)
-end
-
-repeat task.wait(0.2) until (game:GetService("Players").LocalPlayer) and (game:GetService("Players").LocalPlayer.Character)
-
-loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
-
 -- [ Authorization ] --
 
 _G.wl_key = getgenv().ScriptKey
 
 -- [ Optimizations ] --
 
-game_settings = settings()
-game_settings().Rendering.QualityLevel = 1
+local existingSettings = getgenv().settings
+
+if existingSettings and type(existingSettings) == "table" and existingSettings.Rendering then
+    existingSettings.Rendering.QualityLevel = 1
+end
+
 UserSettings().GameSettings.MasterVolume = 0
 
 local UserInputService = game:GetService("UserInputService")
@@ -25,9 +20,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/M
 
 getgenv().settings = {
   ['FPS'] = getgenv().Settings.FPS,
-  ['CPUSAVER'] = getgenv().Settings.CPUSaver,
+  ['CPU_SAVER'] = getgenv().Settings.CPUSaver,
   ['PUBLICSERVERMODE'] = getgenv().Settings.PublicServerMode,
   ['WEBHOOK'] = getgenv().Webhook.WebhookURL,
   ['HOOK_INTERVAL'] = getgenv().Webhook.Interval,
 }
 
+loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
