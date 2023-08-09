@@ -28,17 +28,4 @@ getgenv().settings = {
   ['HOOK_INTERVAL'] = getgenv().Webhook.Interval,
 }
 
--- [ FPS & CPUSaver Fix ] --
-	setfpscap(getgenv().Settings.FPS)
-
-if getgenv().CPUSaver == true then
-  UserInputService.WindowFocused:Connect(function()
-  	game:GetService("RunService"):Set3dRenderingEnabled(true)
-  end)
-  
-  UserInputService.WindowFocusReleased:Connect(function()
-  	game:GetService("RunService"):Set3dRenderingEnabled(false)
-  end)
-end
-
 loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
