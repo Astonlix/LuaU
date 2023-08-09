@@ -1,14 +1,44 @@
+if (not game:IsLoaded()) then 
+	game.Loaded:Wait()
+	task.wait(2)
+end
+
+repeat task.wait(0.2) until (game:GetService("Players").LocalPlayer) and (game:GetService("Players").LocalPlayer.Character)
+
 -- [ Authorization ] --
 
 _G.wl_key = getgenv().ScriptKey
 
--- [ Settings ] --
-
-getgenv().settings['FPS'] = getgenv().Settings.FPS
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
+-- [ Optimizations ] --
 
 settings().Rendering.QualityLevel = 1
 UserSettings().GameSettings.MasterVolume = 0
+
+local UserInputService = game:GetService("UserInputService")
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
+
+-- [ Settings ] --
+
+getgenv().settings = {
+  ['FPS'] = getgenv().Settings.FPS,
+  ['CPUSAVER'] = getgenv().Settings.CPUSaver,
+  ['PUBLICSERVERMODE'] = getgenv().Settings.PublicServerMode,
+  ['WEBHOOK'] = getgenv().Webhook.WebhookURL,
+  ['HOOK_INTERVAL'] = getgenv().Webhook.Interval,
+}
+
+-- [ FPS & CPUSaver Fix ] --
+setfpscap(settings().['FPS'])
+
+if settings().['CPUSAVER'] == true then
+  UserInputService.WindowFocused:Connect(function()
+  	game:GetService("RunService"):Set3dRenderingEnabled(true)
+  end)
+  
+  UserInputService.WindowFocusReleased:Connect(function()
+  	game:GetService("RunService"):Set3dRenderingEnabled(false)
+  end)
+end
 
 loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
