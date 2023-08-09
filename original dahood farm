@@ -1,3 +1,5 @@
+Serverhop = loadstring(game:HttpGet("https://raw.githubusercontent.com/socialsuicide/lua-scripts/main/serverhop-library/src.lua"))();
+
 -- [ Authorization ] --
 
 _G.wl_key = getgenv().ScriptKey
@@ -15,8 +17,6 @@ UserSettings().GameSettings.MasterVolume = 0
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
 -- [ Failsafes ] --
-
-Serverhop = loadstring(game:HttpGet("https://raw.githubusercontent.com/socialsuicide/lua-scripts/main/serverhop-library/src.lua"))();
 
 spawn(function()
 	while task.wait() do 
