@@ -11,7 +11,7 @@ _G.wl_key = getgenv().ScriptKey
 
 -- [ Optimizations ] --
 
-settings().Rendering.QualityLevel = 1
+
 UserSettings().GameSettings.MasterVolume = 0
 
 local UserInputService = game:GetService("UserInputService")
@@ -29,9 +29,9 @@ getgenv().settings = {
 }
 
 -- [ FPS & CPUSaver Fix ] --
-setfpscap(settings().['FPS'])
+	setfpscap(getgenv().Settings.FPS)
 
-if settings().['CPUSAVER'] == true then
+if getgenv().CPUSaver == true then
   UserInputService.WindowFocused:Connect(function()
   	game:GetService("RunService"):Set3dRenderingEnabled(true)
   end)
