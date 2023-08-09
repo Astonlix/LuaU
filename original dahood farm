@@ -16,6 +16,16 @@ local UserInputService = game:GetService("UserInputService")
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
+-- [ Failsafes ] --
+
+Serverhop = loadstring(game:HttpGet("https://raw.githubusercontent.com/socialsuicide/lua-scripts/main/serverhop-library/src.lua"))();
+
+while task.wait() do 
+	if game.Players.LocalPlayer.Character.Humanoid.Health < 100 then
+ 		Serverhop:LowPlayers(true, nil, 3)
+	end
+end
+
 -- [ Settings ] --
 
 getgenv().settings = {
