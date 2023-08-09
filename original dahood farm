@@ -4,6 +4,7 @@ _G.wl_key = getgenv().ScriptKey
 
 -- [ Settings ] --
 
+getgenv().settings['FPS'] = getgenv().Settings.FPS
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
