@@ -1,6 +1,11 @@
+-- [ Authorization ] --
+
 _G.wl_key = getgenv().ScriptKey
 
-getgenv().settings['FPS'] = getgenv().Configuration.FPS
+-- [ Settings ] --
+
+local FPS = settings['FPS']
+FPS = getgenv().Configuration.FPS
 getgenv().settings['CPUSAVER'] = getgenv().Configuration.CPUSaver
 getgenv().settings['PublicServerMode'] = getgenv().Configuration.PublicServerMode
 getgenv().settings['Webhook'] = getgenv().Webhook.WebhookURL
