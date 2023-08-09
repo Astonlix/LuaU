@@ -11,7 +11,8 @@ _G.wl_key = getgenv().ScriptKey
 
 -- [ Optimizations ] --
 
-
+game_settings = settings()
+game_settings().Rendering.QualityLevel = 1
 UserSettings().GameSettings.MasterVolume = 0
 
 local UserInputService = game:GetService("UserInputService")
