@@ -5,6 +5,8 @@ end
 
 repeat task.wait(0.2) until (game:GetService("Players").LocalPlayer) and (game:GetService("Players").LocalPlayer.Character)
 
+loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
+
 -- [ Authorization ] --
 
 _G.wl_key = getgenv().ScriptKey
@@ -29,4 +31,3 @@ getgenv().settings = {
   ['HOOK_INTERVAL'] = getgenv().Webhook.Interval,
 }
 
-loadstring(game:HttpGet('https://scripts.luawl.com/hosted/5736/20857/dahood-lmg-farm.lua'))()
