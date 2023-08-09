@@ -10,8 +10,12 @@ t.WaterTransparency = 0
 l.GlobalShadows = false
 l.FogEnd = 9e9
 l.Brightness = 0
-game_settings = settings()
-game_settings.Rendering.QualityLevel = "Level01"
+local existingSettings = getgenv().settings
+
+-- Check if the settings table exists and has a Rendering sub-table
+if existingSettings and type(existingSettings) == "table" and existingSettings.Rendering then
+    existingSettings.Rendering.QualityLevel = 1
+end
 for i, v in pairs(g:GetDescendants()) do
     if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
         v.Material = "Plastic"
