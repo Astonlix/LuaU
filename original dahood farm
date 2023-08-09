@@ -14,16 +14,6 @@ UserSettings().GameSettings.MasterVolume = 0
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Astonlix/Roblox-Lua/Main/fps-booster"))()
 
--- [ Failsafes ] --
-
-spawn(function()
-	while task.wait() do 
-		if game.Players.LocalPlayer.Character.Humanoid.Health < 100 then
-	 		Serverhop:LowPlayers(true, nil, 3)
-		end
-	end
-end)
-
 -- [ Settings ] --
 
 getgenv().settings = {
