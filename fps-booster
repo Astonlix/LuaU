@@ -11,7 +11,7 @@ l.GlobalShadows = false
 l.FogEnd = 9e9
 l.Brightness = 0
 game_settings = settings()
-game_settings().Rendering.QualityLevel = "Level01"
+game_settings.Rendering.QualityLevel = "Level01"
 for i, v in pairs(g:GetDescendants()) do
     if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
         v.Material = "Plastic"
