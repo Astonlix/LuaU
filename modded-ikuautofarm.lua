@@ -87,7 +87,7 @@ Player.CharacterAdded:Connect(function(Character)
         end
     end)
 end)
-
+-- [ Anchor Cash ] --
 
 -- [ Main Script ] --
 
