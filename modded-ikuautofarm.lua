@@ -1,8 +1,91 @@
+--[[
+	This script was created by vurelix#0, and made possible by doomxx.	
+]]--
 
+-- [ Locals ] --
 
-game:GetService("RunService"):Set3dRenderingEnabled(getgenv().Settings.CPU_Saver)
+local UserInputService = game:GetService("UserInputService")
+
+-- [ Settings ] --
+
+setfpscap(getgenv().Settings.FPS)
+
+spawn(function()
+    while task.wait() do
+        if getgenv().Settings.CPU_Saver then
+            UserInputService.WindowFocused:Connect(function()
+                game:GetService("RunService"):Set3dRenderingEnabled(true)
+            end)
+            
+            UserInputService.WindowFocusReleased:Connect(function()
+                game:GetService("RunService"):Set3dRenderingEnabled(false)
+            end)
+        end
+    end
+end)
+
 settings().Rendering.QualityLevel = getgenv().Settings.Quality_Level
+
 UserSettings().GameSettings.MasterVolume = 0
+
+if _G.Loaded then
+    warn("Autofarm is already loaded.")
+    return
+else
+    _G.Loaded = true
+end
+
+-- [ Auto-Unjail ] --
+
+local Shop = nil
+
+for _,K in ipairs(workspace.Ignored.Shop:GetChildren()) do
+    if K.Name:sub(1,5) == '[Key]' then
+      Shop = K
+    end
+end
+
+local Player = game.Players.LocalPlayer
+local Backpack = Player.Backpack
+
+
+Player.CharacterAdded:Connect(function(Character)
+
+    local Cuff = Character:WaitForChild('BodyEffects').Cuff
+    local Root = Character:WaitForChild('HumanoidRootPart')
+
+    Cuff.Changed:Connect(function(playerIsJailed)
+
+        if playerIsJailed == true then
+            getgenv().Dis()
+            warn("You're jailed, attempting to unjail..")           
+            wait(3)
+
+            repeat
+            	if game.Players.LocalPlayer.Backpack:FindFirstChild('[Key]') then
+            		warn('You already have a key!')
+                    game.Players.LocalPlayer.Backpack['[Key]'].Parent = Character
+            		return
+            	end
+
+                Root.CFrame = CFrame.new(Shop.Head.Position)
+                wait(0.5)
+                fireclickdetector(Shop.ClickDetector)
+                wait(0.1)
+            until
+                game.Players.LocalPlayer.Backpack:FindFirstChild('[Key]')
+                
+            game.Players.LocalPlayer.Backpack['[Key]'].Parent = Character
+            warn("You have been freed!")
+            wait(3)
+        else not playerIsJailed then
+            getgenv().Enabled = true
+        end
+    end)
+end)
+
+
+-- [ Main Script ] --
 
 getgenv().Enabled = true
 getgenv().Dis = function()
@@ -28,8 +111,6 @@ local Player = Players.LocalPlayer
 
 loadstring(game:HttpGet("https://github.com/applless/RandomScripts/raw/main/AntiAfk"))()
 pcall(function()local a=game:GetService("ReplicatedStorage").MainEvent;local b={"CHECKER_1","TeleportDetect","OneMoreTime"}local c;c=hookmetamethod(game,"__namecall",function(...)local d={...}local self=d[1]local e=getnamecallmethod()local f=getcallingscript()if e=="FireServer"and self==a and table.find(b,d[2])then return end return c(...)end)end)
-
-setfpscap(getgenv().Settings.fps)
 
 for i,v in pairs(workspace:GetDescendants()) do 
 	if (v:IsA("Seat")) or (v:IsA("VehicleSeat")) then 
@@ -113,8 +194,6 @@ task.spawn(function()
 				task.wait()
 			until (Cashier.Humanoid.Health <= 0) or (Enabled == false)
 			
-			pcall(CheckKOed)
-			
 			repeat 
 				local CashParts = GetCashParts()
 				
@@ -129,7 +208,6 @@ task.spawn(function()
 
 				task.wait()
 			until (#CashParts <= 0) or (Enabled == false)
-
 		end
 	end
 end)
