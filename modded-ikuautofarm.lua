@@ -217,6 +217,7 @@ task.spawn(function()
 
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(207.48085, 38.2480125, 200014.953, 0.507315397, 3.08652339e-08, -0.861760437, 1.37933904e-08, 1, 4.3936609e-08, 0.861760437, -3.41763169e-08, 0.507315397)
 					
+				task.wait()
 			until (AvailableCashers <= 0) or (Enabled == false)
 		end
 	end
