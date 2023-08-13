@@ -61,8 +61,8 @@ Player.CharacterAdded:Connect(function(Character)
     Cuff.Changed:Connect(function(playerIsJailed)
 
         if playerIsJailed == true then
-            getgenv().Dis()
-            warn("You're jailed, attempting to unjail..")           
+            warn("You're jailed, attempting to unjail..")    
+
             wait(3)
 
             repeat
@@ -81,13 +81,22 @@ Player.CharacterAdded:Connect(function(Character)
                 
             game.Players.LocalPlayer.Backpack['[Key]'].Parent = Character
             warn("You have been freed!")
+
             wait(3)
-        else not playerIsJailed then
-            getgenv().Enabled = true
         end
     end)
 end)
 -- [ Anchor Cash ] --
+
+spawn(function()
+    while task.wait() do
+        for _,cash in ipairs(workspace.Ignored.Drop:GetChildren()) do
+            if cash.Name == 'MoneyDrop' then
+                cash.Anchored = true
+            end
+        end
+    end
+end)
 
 -- [ Main Script ] --
 
@@ -174,6 +183,7 @@ task.spawn(function()
 			local Cashier = nil
 			repeat 
 				Cashier = GetCashier()
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(207.48085, 38.2480125, 200014.953, 0.507315397, 3.08652339e-08, -0.861760437, 1.37933904e-08, 1, 4.3936609e-08, 0.861760437, -3.41763169e-08, 0.507315397)
 				task.wait()
 			until (Cashier ~= nil)
 
@@ -212,13 +222,6 @@ task.spawn(function()
 
 				task.wait()
 			until (#CashParts <= 0) or (Enabled == false)
-
-			repeat
-
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(207.48085, 38.2480125, 200014.953, 0.507315397, 3.08652339e-08, -0.861760437, 1.37933904e-08, 1, 4.3936609e-08, 0.861760437, -3.41763169e-08, 0.507315397)
-					
-				task.wait()
-			until (AvailableCashers <= 0) or (Enabled == false)
 		end
 	end
 end)
