@@ -86,17 +86,6 @@ Player.CharacterAdded:Connect(function(Character)
         end
     end)
 end)
--- [ Anchor Cash ] --
-
-spawn(function()
-    while task.wait() do
-        for _,cash in ipairs(workspace.Ignored.Drop:GetChildren()) do
-            if cash.Name == 'MoneyDrop' then
-                cash.Anchored = true
-            end
-        end
-    end
-end)
 
 -- [ Main Script ] --
 
