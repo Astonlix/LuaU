@@ -127,7 +127,7 @@ local GetClosestPart = function(Table)
 		if (ClosestPart == nil) then
 			ClosestPart = v
 		else
-			if ((Player.Character.HumanoidRootPart.Position - v.Position).Magnitude) < ((ClosestPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude) then
+			if ((Player.Character.HumanoidRootPart.Position + Vector3.new(,0 2, -5) - v.Position).Magnitude) < ((ClosestPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude) then
 				ClosestPart = v
 			end
 		end
@@ -205,6 +205,7 @@ task.spawn(function()
 				
 				for i,v in pairs(CashParts) do 
 					if (v:FindFirstChild("ClickDetector")) then 
+						
 						fireclickdetector(v.ClickDetector)
 					end
 				end
