@@ -201,7 +201,7 @@ task.spawn(function()
 				local CashParts = GetCashParts()
 				
 				Player.Character.HumanoidRootPart.Velocity = Vector3.new(0, 0, 0)
-				Player.Character.HumanoidRootPart.CFrame = Cashier.Open.CFrame + Vector3.new(-5, 2, 0)
+				Player.Character.HumanoidRootPart.CFrame = Cashier.Open.CFrame + Vector3.new(,0 2, -5)
 				
 				for i,v in pairs(CashParts) do 
 					if (v:FindFirstChild("ClickDetector")) then 
