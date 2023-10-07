@@ -1,3 +1,2 @@
-# Roblox-Lua
-This repository's purpose is to hold my progression on learning Roblox Lua.
--Open Sourced and will always be.
+# LuaU
+Hello! This is my personal repository to hold my scripts for games I play.
