@@ -104,46 +104,80 @@ local Attack = function()
 		if (Combat == nil) end
 
 		Combat:Activate()
-
-		if (Mode == 1) then 
-			task.wait()
-			Combat:Deactivate()
-		end
-	elseif (Mode == 3) then
-		if (Player.DataFolder.Currency.Value < 200) then 
-			task.spawn(function()
-				EMPTY.Text = "| Not enough dhc."
-				task.wait(10)
-				EMPTY.Text = "|"
-			end)
-			return Log("nigga how are you that broke that you cant afford to buy a knife lol.")
-		end
-
-		if (Player.Backpack:FindFirstChild("[Knife]") == nil) and (Player.Character:FindFirstChild("[Knife]") == nil) then 
-			Log("buying knife.")
-			
-			EMPTY.Text = "| Buying knife."
-
-			repeat 
-				local KnifeBuy = workspace.Ignored.Shop["[Knife] - $155"]
-				Player.Character.HumanoidRootPart.CFrame = KnifeBuy.Head.CFrame + Vector3.new(0, 3.2, 0)
-				task.wait(0.2)
-				fireclickdetector(KnifeBuy.ClickDetector)
-			until (Player.Backpack:FindFirstChild("[Knife]")) or (Player.Character:FindFirstChild("[Knife]")) or (Shutdown == true)
-			EMPTY.Text = "|"
-		end
-
-		if (Player.Backpack:FindFirstChild("[Knife]")) then 
-			task.wait(0.66)
-			pcall(function()
-				Player.Backpack["[Knife]"].Parent = Player.Character
-			end)
-		end
-
-		local Knife = Player.Character:FindFirstChild("[Knife]")
-		if (Knife == nil) then return Log("no knife tool found.") end
-
-		Knife:Activate()
-		task.wait(0.1)
 	end
 end
+
+--// Main
+task.spawn(function()
+	while true and task.wait(0.2) do 
+		if (Player.Character) and (Player.Character:FindFirstChild("FULLY_LOADED_CHAR")) and (Shutdown == false) then 
+			local Root, Hum = Player.Character:WaitForChild("HumanoidRootPart"), Player.Character:WaitForChild("Humanoid")
+			local Start = os.time()
+			repeat 
+				Player.Character.HumanoidRootPart.CFrame = CFrame.new(0, 500, 0)
+				
+				Cashier, Dist, Index = GetCashier() 
+				task.wait()
+			until (Cashier ~= nilor (Shutdown == true) 
+			
+			if (Unarresting == true) then 
+
+				task.wait(0.5)
+				repeat 
+					local Key = workspace.Ignored.Shop["[Key] - $129"]
+
+					Player.Character.HumanoidRootPart.CFrame = Key.Head.CFrame + Vector3.new(0, 1, 0)
+					task.wait(0.5)
+
+					fireclickdetector(Key.ClickDetector)
+
+					if (Player.Backpack:FindFirstChild("[Key]")) then 
+						pcall(function()
+							Player.Backpack["[Key]"].Parent = Player.Character
+						end)
+					end
+					task.wait()
+				until (Shutdown == true) or (Unarresting == false)
+			end
+			
+		
+
+			repeat 
+				Root.Velocity = Vector3.new(0, 0, 0)
+				if (_G.AutofarmSettings.AttackMode == "4") then 
+					if (Index == 15) or (Index == 16) then 
+						Root.CFrame = Cashier.Head.CFrame + Cashier.Head.CFrame.LookVector * Vector3.new(-12, 2, -12) + Vector3.new(0, -2, 0)
+					else 
+						Root.CFrame = Cashier.Head.CFrame + Cashier.Head.CFrame.LookVector * Vector3.new(-4, 1, -4)  + Vector3.new(0, -2, 0)
+					end
+				else 
+					Root.CFrame = Cashier.Head.CFrame + Cashier.Head.CFrame.LookVector * Vector3.new(-2.2, -1, -2.2) + Vector3.new(0, -2, 0)
+				end
+				
+				task.wait(0.1)
+				Attack()
+			until (Cashier.Humanoid.Health <= 0) or (Shutdown == true)
+
+			
+			Root.CFrame = CFrame.new(Cashier.Head.Position) + Vector3.new(math.random(-2, 2), 1, math.random(-2, 2))
+			
+			EMPTY.Text = "| Picking Cash."
+
+			if (Cashier.Humanoid.Health <= 0) then 
+				BrokenATMs += 1
+			end
+			
+			repeat 
+				for i,v in pairs(workspace.Ignored.Drop:GetChildren()) do 
+					if (v.Name == "MoneyDrop") and (v:FindFirstChild("ClickDetector")) and (GetMag(v) < 17) then 
+						fireclickdetector(v.ClickDetector)
+						task.wait(0.1)
+					end
+				end
+				task.wait(0.1)
+			until (GetCloseCash() <= 0) or (Shutdown == true)
+			
+			Cashier = nil
+		end
+	end
+end)
