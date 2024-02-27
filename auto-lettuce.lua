@@ -15,7 +15,10 @@ local Backpack = LocalPlayer.Backpack
 local Information = game:GetService("Players").LocalPlayer.DataFolder.Information
 local UserInputService = game:GetService("UserInputService")
 --// Settings
-setfpscap(getgenv().Settings.FPS)
+for i = 1, 10 do 
+    setfpscap(tonumber(getgenv().Settings.FPS))
+    task.wait(0.1)
+end
 spawn(function()
     while task.wait() do
         if getgenv().Settings.CPU_Saver then
