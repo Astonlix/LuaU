@@ -1,3 +1,9 @@
+getgenv().Settings = {
+    FPS = 15,
+    CPU_Saver = true,
+    Quality_Level = 1,
+}
+
 -- // Wait for game to load
 if (not game:IsLoaded()) then 
 	game.Loaded:Wait()
@@ -12,6 +18,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local Backpack = LocalPlayer.Backpack
+local Information = game:GetService("Players").LocalPlayer.DataFolder.Information
 local UserInputService = game:GetService("UserInputService")
 --// Settings
 setfpscap(getgenv().Settings.FPS)
@@ -46,18 +53,21 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Icon = "http://www.roblox.com/asset/?id=10198213112", -- Optional
     Duration = 999,
 })
--- // Generates MuscleInformation
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-task.wait(0.33)
-fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
-task.wait(0.5)
-if Backpack:FindFirstChild("[Lettuce]") then
-    Player.Backpack["[Lettuce]"].Parent = Player.Character
-    Character["[Lettuce]"]:Activate()
-else
-    return
+-- // Checks for MuscleInformation
+if not Information:FindFirstChild("MuscleInformation") then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+    task.wait(0.33)
+    fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
+    task.wait(0.5)
+    if Backpack:FindFirstChild("[Lettuce]") then
+        Player.Backpack["[Lettuce]"].Parent = Player.Character
+        Character["[Lettuce]"]:Activate()
+        task.wait(2)
+    else
+        return
+    end
 end
-task.wait(2)
+
 
 local Muscle = game:GetService("Players").LocalPlayer.DataFolder.Information.MuscleInformation
 
@@ -72,7 +82,8 @@ end)
 --// Main
 if Muscle.Value ~= "-15000" then
     task.spawn(function()
-        while Muscle do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        while task.wait() do
             fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
             if Backpack:FindFirstChild("[Lettuce]") then
                 Player.Backpack["[Lettuce]"].Parent = Player.Character
