@@ -15,10 +15,7 @@ local Backpack = LocalPlayer.Backpack
 local Information = game:GetService("Players").LocalPlayer.DataFolder.Information
 local UserInputService = game:GetService("UserInputService")
 --// Settings
-for i = 1, 10 do 
-    setfpscap(tonumber(getgenv().Settings.FPS))
-    task.wait(0.1)
-end
+setfpscap(getgenv().Settings.FPS)
 spawn(function()
     while task.wait() do
         if getgenv().Settings.CPU_Saver then
@@ -89,13 +86,6 @@ if Muscle.Value ~= "-15000" then
                 task.wait(0.33)
                 fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
             end 
-        end
-    end)
-    task.spawn(function()
-        while task.wait() do
-            if Muscle.Value == "-15000" then
-                print('hi')
-            end
         end
     end)
 elseif Muscle.Value == "-15000" or Muscle.Value == "-15075" then
