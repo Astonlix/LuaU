@@ -48,7 +48,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
 task.wait(0.33)
 fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
-task.wait(0.33)
+task.wait(0.5)
 Player.Backpack["[Lettuce]"].Parent = Player.Character
 Character["[Lettuce]"]:Activate()
 task.wait(2)
