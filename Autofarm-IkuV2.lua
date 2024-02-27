@@ -1,4 +1,4 @@
--- This script was made by vurelix, made possible by doomxx, and heavily/skidded inspired by czo. (applless)
+-- This script was made by vurelix, made possible by doomxx, and heavily skidded/inspired by czo. (applless)
 
 if (_G.EXC ~= nil) then
 	warn("This script is already executed!")
