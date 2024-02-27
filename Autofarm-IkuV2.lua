@@ -101,7 +101,7 @@ local Attack = function()
 		end)
 	end
 		local Combat = Player.Character:FindFirstChild("Combat")
-		if (Combat == nil) end
+		if (Combat == nil) then end
 
 		Combat:Activate()
 	end
