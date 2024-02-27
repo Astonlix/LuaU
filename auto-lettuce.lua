@@ -1,9 +1,3 @@
-getgenv().Settings = {
-    FPS = 15,
-    CPU_Saver = true,
-    Quality_Level = 1,
-}
-
 -- // Wait for game to load
 if (not game:IsLoaded()) then 
 	game.Loaded:Wait()
