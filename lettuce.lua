@@ -5,7 +5,7 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local Backpack = LocalPlayer.Backpack
-
+local UserInputService = game:GetService("UserInputService")
 setfpscap(getgenv().Settings.FPS)
 spawn(function()
     while task.wait() do
