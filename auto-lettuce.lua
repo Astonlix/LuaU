@@ -52,11 +52,11 @@ if not Information:FindFirstChild("MuscleInformation") then
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
     task.wait(0.33)
     fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
-    task.wait(0.5)
+    task.wait(1)
     if Backpack:FindFirstChild("[Lettuce]") then
         Player.Backpack["[Lettuce]"].Parent = Player.Character
         Character["[Lettuce]"]:Activate()
-        task.wait(2)
+        task.wait(5)
     else
         return
     end
@@ -77,13 +77,14 @@ end)
 if Muscle.Value ~= "-15000" then
     task.spawn(function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-84.605072, 22.5502319, -632.44989, 0, 0, -1, 0, 1, 0, 1, 0, 0)
+        task.wait(0.33)
+        fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
         while task.wait() do
-            fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
             if Backpack:FindFirstChild("[Lettuce]") then
                 Player.Backpack["[Lettuce]"].Parent = Player.Character
                 Character["[Lettuce]"]:Activate()
             else
-                task.wait(0.33)
+                task.wait(0.66)
                 fireclickdetector(game:GetService("Workspace").Ignored.Shop["[Lettuce] - $5"].ClickDetector)
             end 
         end
