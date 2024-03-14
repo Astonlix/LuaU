@@ -1,6 +1,3 @@
-if _G.Lunar == true then
-	local myName = '! vurelix#1017';
-
 	_G.Console = true;
 	_G.AutoTap = true;
 	_G.AutoRebirth = true;
